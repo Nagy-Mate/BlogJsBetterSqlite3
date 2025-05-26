@@ -16,7 +16,7 @@ async function displayBlogs() {
     let table = '<table>';
     table += `
         <tr>
-            <th> </th>
+            <th>#</th>
             <th>Felhasználó</th>
             <th>Cím</th>
             <th>Kategória</th>
@@ -29,23 +29,24 @@ async function displayBlogs() {
     let counter = 1;
     data.forEach(blog => {
         table += `
-        <tr>
-            <td>${counter}</td>
-            <td>${blog.user}</td>
-            <td>${blog.title}</td>
-            <td>${blog.category}</td>
-            <td>${blog.content}</td>
-            <td>${formatDate(blog.creationDate)}</td>
-            <td>${blog.modificationDate ? formatDate(blog.modificationDate) : '-'}</td>
-            <td>
-                <button class="delete" onclick="confirmDelete('${blog.id}')" title="Törlés">
-                    <i class="fas fa-trash-alt"></i>
-                </button>
-                <button class="edit" onclick="editBlog('${blog.id}', '${blog.user}', '${blog.title}', '${blog.category}', \`${blog.content}\`)" title="Szerkesztés">
-                    <i class="fas fa-edit"></i>
-                </button>
-            </td>
-        </tr>`;
+            <tr>
+                <td>${counter}</td>
+                <td class="user">${blog.user}</td>
+                <td class="title">${blog.title}</td>
+                <td>${blog.category}</td>
+                <td class="content"><div class="scrollable">${blog.content}</div></td>
+                <td>${formatDate(blog.creationDate)}</td>
+                <td>${blog.modificationDate ? formatDate(blog.modificationDate) : '-'}</td>
+                <td>
+                    <button class="delete" onclick="confirmDelete('${blog.id}')" title="Törlés">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="edit" onclick="editBlog('${blog.id}', '${blog.user}', '${blog.title}', '${blog.category}', \`${blog.content}\`)" title="Szerkesztés">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </td>
+            </tr>`;
+
         counter++;
     });
 
@@ -59,7 +60,7 @@ async function createBlog() {
     const category = document.getElementById("category");
     const content = document.getElementById("content");
 
-    const creationDate = new Date().toISOString().slice(0, 19);
+    const creationDate = new Date().toLocaleString('sv-SE').replace(' ', 'T');
 
     try {
         const response = await fetch(baseUrl, {
@@ -104,7 +105,7 @@ async function updateBlog() {
     const title = document.getElementById("editTitle").value;
     const category = document.getElementById("editCategory").value;
     const content = document.getElementById("editContent").value;
-    const modificationDate = new Date().toISOString().slice(0, 19);
+    const modificationDate = new Date().toLocaleString('sv-SE').replace(' ', 'T');
 
     const updatedBlog = { user, title, category, content, modificationDate };
 
