@@ -1,0 +1,122 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 2rem auto;
+    max-width: 960px;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    margin-top: 2rem;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#editForm {
+    scroll-margin-top: 80px; /* a görgetéshez kényelmes távolság */
+}
+
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"] {
+    width: 100%;
+    padding: 0.6rem;
+    margin: 0.4rem 8px 1rem 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+
+}
+
+
+button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px; /* 🔁 lekerekített sarkok */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"] {
+    background-color: #28a745; /* 🌿 zöld */
+    color: white;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838; /* sötétebb zöld hover */
+}
+
+button.delete:hover {
+    color: #d11a2a; /* pirosas törléshez pl. */
+}
+
+button i.fa-edit:hover {
+    color: #0a7adb;
+}
+
+
+
+#addToggle {
+    background-color: #2ecc71;
+    color: white;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.actions button:first-child {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.actions button:nth-child(2) {
+    background-color: #2980b9;
+    color: white;
+}

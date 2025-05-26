@@ -1,9 +1,11 @@
 import express from "express";
+import cors from "cors";
 import * as db from './Util/database.js';
 
 const PORT = 8080;
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.get('/blogs', (req, res)=>{
     try{
